@@ -4,7 +4,7 @@ import "./../Navbar/Navbar.scss";
 import logo from "./../../assets/logo.png";
 import cart_icon from "./../../assets/cart_icon.png";
 import Image from "next/image";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ShopContext } from "@/context/ShopContext";
 import nav_dropdown from "./../../assets/nav_dropdown.png";
@@ -13,6 +13,12 @@ const Navbar = () => {
   const [menu, setMenu] = useState("shop");
   const { getTotalCartItems } = useContext(ShopContext);
   const menuRef = useRef();
+
+  const [auth, setAuth] = useState(null);
+
+  useEffect(() => {
+    setAuth(localStorage.getItem("auth-token"));
+  }, []);
 
   const dropdownToggle = (e) => {
     menuRef.current.classList.toggle("nav-menu-visible");
@@ -80,11 +86,12 @@ const Navbar = () => {
             </ul>
           </nav>
           <div className="header__card">
-            {localStorage.getItem("auth-token") ? (
+            {auth ? (
               <button
                 className="header__card-button"
                 onClick={() => {
                   localStorage.removeItem("auth-token");
+                  setAuth(null);
                   window.location.replace("/");
                 }}
               >

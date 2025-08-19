@@ -6,7 +6,13 @@ const Item = (props) => {
   return (
     <div className="item">
       <Link href={`/product/${props.id}`}>
-        <Image className="item__image" src={props.image} alt="image" />
+        <Image
+          className="item__image"
+          src={props.image}
+          alt="image"
+          width={348}
+          height={348}
+        />
         <div className="item__info">
           <h3 className="item__name">{props.name}</h3>
           <div className="item__prices">

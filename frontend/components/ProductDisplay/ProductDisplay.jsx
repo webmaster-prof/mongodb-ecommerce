@@ -15,16 +15,43 @@ const ProductDisplay = ({ product }) => {
       <div className="productdisplay__inner">
         <div className="productdisplay__images">
           <div className="productdisplay__images-litle">
-            <Image src={product.image} alt="product-image" />
-            <Image src={product.image} alt="product-image" />
-            <Image src={product.image} alt="product-image" />
-            <Image src={product.image} alt="product-image" />
-            <Image src={product.image} alt="product-image" />
+            <Image
+              src={product.image}
+              alt="product-image"
+              width={500}
+              height={500}
+            />
+            <Image
+              src={product.image}
+              alt="product-image"
+              width={500}
+              height={500}
+            />
+            <Image
+              src={product.image}
+              alt="product-image"
+              width={500}
+              height={500}
+            />
+            <Image
+              src={product.image}
+              alt="product-image"
+              width={500}
+              height={500}
+            />
+            <Image
+              src={product.image}
+              alt="product-image"
+              width={500}
+              height={500}
+            />
           </div>
           <Image
             className="productdisplay__images-big"
             src={product.image}
             alt="product-image"
+            width={500}
+            height={500}
           />
         </div>
         <div className="productdisplay__info">

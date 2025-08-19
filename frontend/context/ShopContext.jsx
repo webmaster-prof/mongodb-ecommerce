@@ -1,29 +1,26 @@
 "use client";
 
-import all_product from "@/assets/all_product";
-import data_product from "@/assets/data";
-import new_collections from "@/assets/new_collections";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ShopContext = createContext(null);
 
-const all_product_combined = [
-  ...all_product,
-  ...new_collections,
-  ...data_product,
-];
-
 const getDefaultCart = () => {
   let cart = {};
-  for (const product of all_product_combined) {
-    cart[product.id] = 0;
+  for (let index; index < 300 + 1; index++) {
+    cart[index] = 0;
   }
   return cart;
 };
 
 const ShopContextProvider = ({ children }) => {
+  const [all_product, setAll_Product] = useState([]);
   const [cartItems, setCartItems] = useState(getDefaultCart());
-  const [allProduct, setAllProduct] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/getallproducts")
+      .then((res) => res.json())
+      .then((data) => setAll_Product(data));
+  }, []);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -37,7 +34,7 @@ const ShopContextProvider = ({ children }) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = all_product_combined.find(
+        let itemInfo = all_product.find(
           (product) => product.id === Number(item)
         );
         if (itemInfo) {
@@ -60,7 +57,7 @@ const ShopContextProvider = ({ children }) => {
 
   const contextValue = {
     getTotalCartAmount,
-    all_product: all_product_combined,
+    all_product,
     cartItems,
     addToCart,
     removeFromCart,
