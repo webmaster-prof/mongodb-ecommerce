@@ -1,0 +1,228 @@
+.cartitems {
+  padding: 9.375rem 0;
+  @media (max-width: 1300px) {
+    padding: 3.125rem 0;
+  }
+}
+
+.cartitems__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartitems__header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  p {
+    font-size: 1.875rem;
+    font-weight: 600;
+    @media (max-width: 760px) {
+      font-size: 1.25rem;
+    }
+  }
+  @media (max-width: 570px) {
+    display: none;
+  }
+}
+
+.cartitems__line {
+  width: 100%;
+  background-color: rgb(195, 186, 186);
+  height: 2px;
+}
+
+.cartitems__details {
+}
+
+.cartitems__detail {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 2px solid rgb(195, 186, 186);
+  @media (max-width: 570px) {
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+    row-gap: 1.25rem;
+  }
+}
+
+.cartitems__image {
+  object-fit: cover;
+  width: 5rem;
+  height: 6.25rem;
+}
+
+.cartitems__name {
+  font-size: 1.375rem;
+  color: rgb(118, 115, 115);
+  line-height: 1.4;
+  padding-right: 1.875rem;
+  @media (max-width: 760px) {
+    font-size: 1rem;
+    padding-left: 0.625rem;
+  }
+}
+
+.cartitems__price {
+  font-size: 1.5625rem;
+  color: rgb(118, 115, 115);
+  margin-left: 0.9375rem;
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+}
+
+.cartitems__quantity {
+  font-size: 1.5625rem;
+  color: rgb(118, 115, 115);
+  background-color: transparent;
+  border: 0.0625rem solid rgb(118, 115, 115);
+  width: 5rem;
+  height: 3.75rem;
+  margin-left: 0.9375rem;
+  border-radius: 5px;
+  @media (max-width: 760px) {
+    font-size: 1rem;
+    width: 3.125rem;
+    height: 1.875rem;
+  }
+}
+
+.cartitems__allprice {
+  font-size: 1.5625rem;
+  color: rgb(118, 115, 115);
+  margin-left: 0.9375rem;
+  @media (max-width: 760px) {
+    font-size: 1rem;
+  }
+}
+
+.cartitems__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 1.5625rem;
+  @media (max-width: 760px) {
+    width: 0.9375rem;
+    height: 0.9375rem;
+  }
+}
+
+.cartitems__info {
+  display: flex;
+  margin-top: 9.375rem;
+  column-gap: 12.5rem;
+  @media (max-width: 1300px) {
+    column-gap: 4.375rem;
+  }
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    row-gap: 6.25rem;
+    margin-top: 3.125rem;
+  }
+}
+
+.cartitems__left {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartitems__left-title {
+  color: black;
+  font-weight: 600;
+  font-size: 3.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.cartitems__left-items {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.125rem;
+}
+
+.cartitems__left-item {
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  p {
+    font-size: 1.25rem;
+    color: rgb(176, 164, 164);
+    font-weight: 600;
+  }
+  span {
+    font-size: 1.25rem;
+    color: black;
+    font-weight: 600;
+  }
+}
+
+.cartitems__left-line {
+  width: 100%;
+  background-color: rgb(193, 181, 181);
+  height: 1px;
+}
+
+.cartitems__left-button {
+  background-color: rgb(248, 65, 65);
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1.125rem 1.5625rem;
+  align-self: flex-start;
+}
+
+.cartitems__right {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+  @media (max-width: 1000px) {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.cartitems__right-text {
+  color: rgb(174, 166, 166);
+  font-size: 1.4375rem;
+  font-weight: 500;
+}
+
+.cartitems__right-form {
+  display: flex;
+  align-items: center;
+  @media (max-width: 1000px) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.cartitems__right-input {
+  background-color: rgb(222, 211, 211);
+  padding: 1.25rem 1.25rem;
+  font-size: 1.25rem;
+  color: rgb(74, 69, 69);
+  width: 50%;
+  &::placeholder {
+    font-size: 1.25rem;
+    color: rgb(184, 170, 170);
+  }
+  @media (max-width: 1300px) {
+    width: 25rem;
+  }
+}
+
+.cartitems__right-button {
+  padding: 1.25rem 1.25rem;
+  font-size: 1.25rem;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  width: 20%;
+  @media (max-width: 1000px) {
+    width: 9.375rem;
+  }
+}

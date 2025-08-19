@@ -1,0 +1,45 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5625rem;
+}
+
+.item__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.item__info {
+  padding-right: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.25rem;
+  margin-top: 1.875rem;
+}
+
+.item__name {
+  color: rgb(58, 56, 56);
+  text-transform: capitalize;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.item__prices {
+  display: flex;
+  column-gap: 1.875rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.item__price-new {
+  color: black;
+}
+
+.item__price-old {
+  color: rgb(84, 76, 76);
+}
