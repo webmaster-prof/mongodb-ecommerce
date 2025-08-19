@@ -1,0 +1,6 @@
+.admin__inner {
+  display: flex;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,125 @@
+.listproduct {
+  margin: 1.875rem;
+  padding: 3.125rem;
+  background-color: white;
+  width: 100%;
+  border-radius: 0.625rem;
+  @media (max-width: 1200px) {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  @media (max-width: 1000px) {
+    margin: 0 auto;
+  }
+}
+
+.listproduct__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.listproduct__title {
+  color: black;
+  font-size: 2.8125rem;
+  font-weight: 600;
+  margin-bottom: 3.125rem;
+  text-align: center;
+  @media (max-width: 800px) {
+    margin-bottom: 0;
+    font-size: 1.875rem;
+  }
+}
+
+.listproduct__main {
+  display: flex;
+  flex-direction: column;
+}
+
+.listproduct__main-header {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  margin-bottom: 3.125rem;
+  position: relative;
+  &::after {
+    content: "";
+    min-width: 100%;
+    background-color: rgb(180, 168, 168);
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -2.5rem;
+  }
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
+.listproduct__header-title {
+  font-size: 1.5625rem;
+  color: rgb(62, 59, 59);
+  font-weight: 600;
+  @media (max-width: 1200px) {
+    font-size: 1.25rem;
+  }
+}
+
+.listproduct__main-body {
+  margin-top: 3.125rem;
+}
+
+.listproduct__body-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3.125rem;
+}
+
+.listproduct__list-item {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  align-items: center;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 3fr 1fr;
+    row-gap: 1.875rem;
+    border-bottom: 2px solid rgb(179, 172, 172);
+    padding-bottom: 1.25rem;
+  }
+}
+
+.listproduct__item-title,
+.listproduct__item-new,
+.listproduct__item-category,
+.listproduct__item-old,
+.listproduct__item-removeicon {
+  font-size: 1.25rem;
+  color: rgb(179, 172, 172);
+  line-height: 1.2;
+  @media (max-width: 430px) {
+    font-size: 1rem;
+  }
+}
+
+.listproduct__item-new,
+.listproduct__item-category,
+.listproduct__item-old,
+.listproduct__item-removeicon {
+  margin-left: 1.875rem;
+  @media (max-width: 800px) {
+    margin-left: 0.625rem;
+  }
+}
+
+.listproduct__item-title {
+  @media (max-width: 430px) {
+    margin-left: 10px;
+  }
+}
+
+.listproduct__item-removeicon {
+  cursor: pointer;
+}
+
+.listproduct__item-img {
+  width: 4.375rem;
+  height: 4.375rem;
+  object-fit: cover;
+}
