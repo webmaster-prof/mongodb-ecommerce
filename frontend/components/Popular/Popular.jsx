@@ -1,9 +1,18 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect, useState } from "react";
 import Item from "../Items/Item";
 import "./Popular.scss";
-import data_product from "@/assets/data";
 
 const Popular = () => {
+  const [popularProducts, setPopularProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/popularinwomen")
+      .then((res) => res.json())
+      .then((data) => setPopularProducts(data));
+  }, []);
+
   return (
     <section className="popular">
       <div className="container">
@@ -11,7 +20,7 @@ const Popular = () => {
           <h1 className="popular__title">Popular in women</h1>
           <div className="popular__decor"></div>
           <div className="popular__items">
-            {data_product.map((item) => (
+            {popularProducts.map((item) => (
               <Item
                 key={item.id}
                 id={item.id}

@@ -1,9 +1,18 @@
-import new_collections from "@/assets/new_collections";
+"use client";
+
 import Item from "../Items/Item";
 import "./NewCollections.scss";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const NewCollections = () => {
+  const [new_collections, setNew_Collections] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/newcollection")
+      .then((res) => res.json())
+      .then((data) => setNew_Collections(data));
+  }, []);
+
   return (
     <section className="new">
       <div className="container">

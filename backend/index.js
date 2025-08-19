@@ -200,6 +200,20 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.get("/newcollection", async (req, res) => {
+  let products = await Product.find({});
+  let newcollection = products.slice(1).slice(-8);
+  console.log("NewCollection Fetched");
+  res.send(newcollection);
+});
+
+app.get("/popularinwomen", async (req, res) => {
+  let products = await Product.find({ category: "women" });
+  let popular_in_women = products.slice(0, 4);
+  console.log("Popular in women Fetched");
+  res.send(popular_in_women);
+});
+
 app.listen(port, (error) => {
   if (!error) {
     console.log("Server Running on Port" + port);
