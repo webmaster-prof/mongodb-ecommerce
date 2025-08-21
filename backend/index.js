@@ -214,6 +214,51 @@ app.get("/popularinwomen", async (req, res) => {
   res.send(popular_in_women);
 });
 
+const fetchUser = async (req, res, next) => {
+  const token = req.header("auth-token");
+  if (!token) {
+    res.status(401).send({ errors: "Pleace authenticate using a valid token" });
+  } else {
+    try {
+      const data = jwt.verify(token, "secret_ecom");
+      req.user = data.user;
+      next();
+    } catch {
+      res
+        .status(401)
+        .send({ errors: "Pleace authenticate using a valid token" });
+    }
+  }
+};
+
+app.post("/getcart", fetchUser, async (req, res) => {
+  let userData = await Users.findOne({ _id: req.user.id });
+  res.json(userData.cartData);
+});
+
+app.post("/addtocart", fetchUser, async (req, res) => {
+  console.log("Added", req.body.itemId);
+  let userData = await Users.findOne({ _id: req.user.id });
+  userData.cartData[req.body.itemId] += 1;
+  await Users.findOneAndUpdate(
+    { _id: req.user.id },
+    { cartData: userData.cartData }
+  );
+  res.send("Added");
+});
+
+app.post("/removefromcart", fetchUser, async (req, res) => {
+  console.log("removed", req.body.itemId);
+  let userData = await Users.findOne({ _id: req.user.id });
+  if (userData.cartData[req.body.itemId] > 0)
+    userData.cartData[req.body.itemId] -= 1;
+  await Users.findOneAndUpdate(
+    { _id: req.user.id },
+    { cartData: userData.cartData }
+  );
+  res.send("Removed");
+});
+
 app.listen(port, (error) => {
   if (!error) {
     console.log("Server Running on Port" + port);

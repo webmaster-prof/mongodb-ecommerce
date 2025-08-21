@@ -32,6 +32,8 @@ const CartItems = () => {
                     src={e.image}
                     alt="product"
                     className="cartitems__image"
+                    width={500}
+                    height={500}
                   />
                   <p className="cartitems__name">{e.name}</p>
                   <p className="cartitems__price">${e.new_price}</p>
